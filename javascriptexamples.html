@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<!-- <link rel='stylesheet' href='style.css'> -->
+		<meta charset="UTF-8">
+		<title>JS Examples</title>
+	</head>
+
+	<body>
+		
+		<a href='index.html'>HomePage</a>
+	
+		<div id='ex1'>
+		
+			<h2>Exercise 1</h2>
+			
+			<h3>Problem:</h3>
+			
+			<p>Ask a user for number 'n' and print the sum of numbers 1 to 'n'</p>
+			
+			<h3>Pseudo Code:</h3>
+			<p>
+				Input number and store as variable 'n'<br>
+				Have loop count from 1 to n, and add current number to a running total 'total'<br>
+				Print 'total' on screen, below input and button
+			</p>
+			
+			<h3>Source Code:</h3>
+			
+			<code>
+				function countTo(){<br>
+						<br>
+						var n = parseInt(document.getElementById('n').value);<br>
+						var total = 0;<br>
+						<br>
+						for(var i = 1; i <= n; i++){<br>
+							<br>
+							total += i;<br>
+							<br>
+						}<br>
+						<br>
+						document.getElementById('countOut').innerHTML = total;<br>
+						<br>
+				}
+			</code>
+			
+			<h4>Input number to count to (default is 10)</h4>
+			
+			<input type='text' id='n' value='10'>
+			<br>
+			
+			<button onclick='countTo()'>Count to ... and print sum</button>
+			<br>
+			
+			<b>Total:</b>
+			<br>
+			
+			<samp id='countOut'>none</samp>
+			
+			<script>
+				
+				function countTo(){
+					
+					var n = parseInt(document.getElementById('n').value);
+					var total = 0;
+					
+					for(var i = 1; i <= n; i++){
+						
+						total += i;
+						
+					}
+					
+					document.getElementById('countOut').innerHTML = total;
+					
+				}
+				
+			</script>
+		</div>
+		
+		<div id='ex2'>
+			
+			<h2>Exercise 2</h2>
+			
+			<h3>Problem:</h3>
+			
+			<p>Have user input a list and return the greatest value of the list</p>
+			
+			<h3>Pseudo Code</h3>
+			<p>
+				Input single number and add it into the list<br>
+				When press 'Return Greatest' print the list, and the greatest value below list<br>
+				Have reset button to reset list<br>
+			</p>
+			
+			<h3>Source Code:</h3>
+			<h4>Trust me, it looks a lot better in the actual HTML file</h4>
+			<code>
+				var list = [];<br> 
+				<br> 
+				function addToList(){<br> 
+					if(isNaN(document.getElementById('addToList').value) != true && document.getElementById('addToList').value != ''){<br> 
+						list.push(parseInt(document.getElementById('addToList').value));<br> 
+					} else {<br> 
+						document.getElementById('addToList').value = '';<br> 
+					}<br> 
+					document.getElementById('addToList').value = '';<br> 
+					<br> 
+					document.getElementById('listOut').innerHTML = '{';<br> 
+					<br> 
+					for(var i = 0; i < list.length; i++){<br> 
+						<br> 
+						document.getElementById('listOut').innerHTML += list[i] + ", ";<br> 
+						<br> 
+					}<br> 
+					<br> 
+					document.getElementById('listOut').innerHTML += '}';<br> 
+					<br> 
+				}<br> 
+				<br> 
+				function printGreatest(){<br> 
+					<br> 
+					var currGreatest = list[0];<br> 
+					<br> 
+					for(i=0; i < list.length; i++){<br> 
+					<br> 
+						if(list[i] > currGreatest){<br> 
+						<br> 
+							currGreatest = list[i];<br> 
+						<br> 
+						}<br> 
+				<br> 
+					}<br> 
+					<br> 
+					document.getElementById('greatestOut').innerHTML = currGreatest;<br> 
+					<br> 
+				}<br> 
+				<br> 
+				function reset(){<br> 
+				<br> 
+					list = [];<br> 
+					document.getElementById('listOut').innerHTML = "NoList";<br> 
+					document.getElementById('greatestOut').innerHTML = "NothingYet";<br> 
+				<br> 
+				}<br> 
+			</code>
+			
+			<h4>Give me numbers for a list, and I'll tell you the biggest one</h4>
+			
+			<input type='text' id='addToList' value=''>
+			<button onclick='addToList()'>Add Value To List</button>
+			<button onclick='printGreatest()'>Print Greatest</button>
+			<button onClick='reset()'>Reset</button>
+			<br>
+			
+			<samp id='listOut'>NoList</samp><br>
+			<samp id='greatestOut'>NothingYet</samp>
+			
+			<script>
+			
+				var list = [];
+				
+				function addToList(){
+					if(isNaN(document.getElementById('addToList').value) != true && document.getElementById('addToList').value != ''){
+						list.push(parseInt(document.getElementById('addToList').value));
+					} else {
+						document.getElementById('addToList').value = '';
+					}
+					document.getElementById('addToList').value = '';
+					
+					document.getElementById('listOut').innerHTML = '{';
+					
+					for(var i = 0; i < list.length; i++){
+						
+						document.getElementById('listOut').innerHTML += list[i] + ", ";
+						
+					}
+					
+					document.getElementById('listOut').innerHTML += '}';
+					
+				}
+				
+				function printGreatest(){
+					
+					var currGreatest = list[0];
+					
+					for(i=0; i < list.length; i++){
+					
+						if(list[i] > currGreatest){
+						
+							currGreatest = list[i];
+						
+						}
+				
+					}
+					
+					document.getElementById('greatestOut').innerHTML = currGreatest;
+					
+				}
+				
+				function reset(){
+				
+					list = [];
+					document.getElementById('listOut').innerHTML = "NoList";
+					document.getElementById('greatestOut').innerHTML = "NothingYet";
+				
+				}
+			
+			</script>
+		</div>
+		
+		<div id='ex3'>
+		
+			<h2>Exercise 3</h2>
+			
+			<h3>Problem:</h3>
+			
+			<p>Find factors of a given number 'n'</p>
+			
+			<h3>Pseudo Code</h3>
+			<p>
+				Input number 'n'<br>
+				In a for loop, modulus 'n' by n-i, where i starts at 0 and goes to n<br>
+				If the result is 0, meaning n-i is a factor of n, then output the number<br>
+			</p>
+			
+			<h3>Source Code:</h3>
+			<code>
+				function factor(){<br> 
+				<br> 
+					var n = document.getElementById('nToFactor').value;<br> 
+					document.getElementById('factors').innerHTML = '';<br> 
+					for(i = 0; i <= n; i++){<br> 
+					<br> 
+						var remainder = n % (n-i);<br> 
+						<br> 
+						if(remainder === 0){<br> 
+							<br> 
+							document.getElementById('factors').innerHTML += n-i + ', ';<br> 
+							<br> 
+						}<br> 
+					<br> 
+					}<br> 
+				<br> 
+				}<br> 
+			</code>
+			
+			<h4>Input a number to have its factors output</h4>
+			
+			<input type='text' id='nToFactor'>
+			<button onclick='factor()'>Factors are:</button>
+			<samp id='factors'></samp>
+			
+			<script>
+			
+				function factor(){
+				
+					var n = document.getElementById('nToFactor').value;
+					document.getElementById('factors').innerHTML = '';
+					for(i = 0; i <= n; i++){
+					
+						var remainder = n % (n-i);
+						
+						if(remainder === 0){
+							
+							document.getElementById('factors').innerHTML += n-i + ', ';
+							
+						}
+					
+					}
+				
+				}
+				
+			</script>
+			<br>
+			<br>
+		</div>
+		
+		<a href='index.html'>HomePage</a>
+		
+	</body>
+</html>

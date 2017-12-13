@@ -1,76 +1,156 @@
 <!DOCTYPE html>
 
-<html lang = 'en'>
+<html lang = "en">
 
     <head>
-	
-		<meta charset='UTF-8'> 
-		
+
+	<meta charset="UTF-8">
+
 <!-- page title -->
 
-        <title> Home </title>
-		
+        <title>Home</title>
+
 <!-- css link, try to keep same file across site -->
 
-        <link rel='stylesheet' href='style.css'>
+        <link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 		
     </head>
 
-    <body>
+    <body class = 'w3-animate-opacity'>
 	
 <!-- What to display above the nav bar -->
 
 		<header>
 
+			<h1>Home</h1>
+
 		</header>
 		
-<!-- Nav Bar (make sure to class the active page) -->
-		
-		<nav>
-			<ul>
-				<li>
-					<a href='index.html' class='active'>
-						Main
-					</a>
-				</li>
-				<li class='dropdown'>
-					<a href='#' class='dropParent'>
-						Portfolio Examples
-					</a>
-					<div class='dropChild'>
-						<a href='cssExamples.html'>
-							CSS & HTML
-						</a>
-						<a href='javascriptexamples.html'>
-							Javascript
-						</a>
-						<a href='graphicsMedia.html'>
-							Graphics & Media
-						</a>
-					</div>
-				</li>
-				<li>
-					<a href='projects.html'>
-						Projects
-					</a>
-				</li>
-				<li class='dropdown'>
-					<a href='about.html'>
-						About
-					</a>
-				</li>
-			</ul>
+<!-- Nav Bar append 'w3-deep-orange' onto active -->
+
+		<nav class = 'w3-bar 23-border w3-black' style = 'position: sticky; top: 0; z-index: 200;'>
+			<a href = 'index.html' class = 'w3-bar-item w3-button w3-hover-none w3-text-white w3-hover-blue-gray w3-deep-orange'>Home</a>
+			<a href = 'school.html' class = 'w3-bar-item w3-button w3-hover-none w3-text-white w3-hover-blue-gray'>School</a>
+			<a href = 'projects.html' class = 'w3-bar-item w3-button w3-hover-none w3-text-white w3-hover-blue-gray'>Projects</a>
+			<a href = 'about.html' class = 'w3-bar-item w3-button w3-hover-none w3-text-white w3-hover-blue-gray'>About</a>
 		</nav>
-		
+
 <!-- Page Content -->
 
 		<article>
+			<div id = 'showcase' class = 'w3-section'>
+				<div class = 'w3-display-container'>
+				
+					<img style = 'width: 100%;' class = 'mySlides' src = 'showcase/img1.jpg'>
+					<img style = 'width: 100%;' class = 'mySlides' src = 'showcase/img2.jpg'>
+					<img style = 'width: 100%;' class = 'mySlides' src = 'showcase/img3.jpg'>
+					<img style = 'width: 100%;' class = 'mySlides' src = 'showcase/img4.jpg'>
+					<img style = 'width: 100%;' class = 'mySlides' src = 'showcase/img5.jpg'>
+					<img style = 'width: 100%;' class = 'mySlides' src = 'showcase/img6.jpg'>
+					
+					<div class = 'w3-center w3-display-bottommiddle' style = 'width: 100%;'>
+						
+						<div class = 'w3-left w3-button' onclick='plusDivs(-1)'>&#10094;</div>
+						<div class = 'w3-right w3-button' onclick='plusDivs(+1)'>&#10095;</div>
 		
-		<h1>Hey! You there! Im rebuilding my site from the bottom up, 
-			and if youre seeing this im behind schedule. Would you do me a solid and grade this site last?</h1>
-		
-		</article>
+						<span class="w3-badge demo w3-border w3-button" onclick="currentDiv(1)"></span>
+						<span class="w3-badge demo w3-border w3-button" onclick="currentDiv(2)"></span>
+						<span class="w3-badge demo w3-border w3-button" onclick="currentDiv(3)"></span>
+						<span class="w3-badge demo w3-border w3-button" onclick="currentDiv(4)"></span>
+						<span class="w3-badge demo w3-border w3-button" onclick="currentDiv(5)"></span>
+						<span class="w3-badge demo w3-border w3-button" onclick="currentDiv(6)"></span>
+						
+					</div>
+				
+				</div>
+				
+				<script>
+					var slideIndex = 1;
+					showDivs(slideIndex);
+					
+					function plusDivs(n) {
+					  showDivs(slideIndex += n);
+					}
 
+					function currentDiv(n) {
+					  showDivs(slideIndex = n);
+					}
+					
+					function showDivs(n) {
+					  var i;
+					  var x = document.getElementsByClassName("mySlides");
+					  var dots = document.getElementsByClassName("demo");
+					  if (n > x.length) {slideIndex = 1}    
+					  if (n < 1) {slideIndex = x.length}
+					  for (i = 0; i < x.length; i++) {
+						 x[i].style.display = "none";  
+					  }
+					  for (i = 0; i < dots.length; i++) {
+						 dots[i].className = dots[i].className.replace(" w3-white", "");
+					  }
+					  x[slideIndex-1].style.display = "block";  
+					  dots[slideIndex-1].className += " w3-white";
+					}
+				</script>
+				
+			</div>
+		
+			<div class = 'w3-section w3-margin-left'>
+                
+                <h1 class = 'w3-panel w3-leftbar'>Whats New?</h1>
+                
+                <div class = 'w3-card w3-section'>
+                    <a href = '#' style = 'text-decoration: none;'>
+                        <header class = 'w3-container w3-black'>
+                            <h3>Website Launched!</h3>
+                        </header>
+                        
+                        <div class = 'w3-container'>
+                            <p>The website is currently being populated with content and modified, so it may look unfinished and quite empty. With due time it will look better!</p>
+                        </div>
+                        
+                        <footer class = 'w3-container w3-black'>
+                            <p class = 'w3-small'>Posted: Wednesday, December 13, 2017</p>
+                        </footer>
+                    </a>
+                </div>
+                <div style = 'display: none;'>
+                <div class = 'w3-card w3-section'>
+                    <a href = '#' style = 'text-decoration: none;'>
+                        <header class = 'w3-container w3-black'>
+                            <h3>Test 1</h3>
+                        </header>
+                        
+                        <div class = 'w3-container'>
+                            <p>Test Text</p>
+                        </div>
+                        
+                        <footer class = 'w3-container w3-black'>
+                            <p class = 'w3-small'>Posted:</p>
+                        </footer>
+                    </a>
+                </div>
+                
+                <div class = 'w3-card w3-section'>
+                    <a href = '#' style = 'text-decoration: none;'>
+                        <header class = 'w3-container w3-black'>
+                            <h3>Test 1</h3>
+                        </header>
+                        
+                        <div class = 'w3-container'>
+                            <p>Test Text</p>
+                        </div>
+                        
+                        <footer class = 'w3-container w3-black'>
+                            <p class = 'w3-small'>Posted:</p>
+                        </footer>
+                    </a>
+                </div>
+                </div>
+            </div>
+			
+		</article>
 
 <!-- Bottom of page -->
 		

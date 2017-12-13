@@ -17,7 +17,7 @@
 		
     </head>
 
-    <body>
+    <body class = 'w3-animate-opacity'>
 	
 <!-- What to display above the nav bar -->
 
@@ -29,7 +29,7 @@
 		
 <!-- Nav Bar append 'w3-deep-orange' onto active -->
 		
-		<nav class = 'w3-bar 23-border w3-black' style = 'position: sticky; top: 0;'>
+		<nav class = 'w3-bar 23-border w3-black' style = 'position: sticky; top: 0; z-index: 200;'>
 			<a href = 'index.html' class = 'w3-bar-item w3-button w3-hover-none w3-text-white w3-hover-blue-gray w3-deep-orange'>Home</a>
 			<a href = 'school.html' class = 'w3-bar-item w3-button w3-hover-none w3-text-white w3-hover-blue-gray'>School</a>
 			<a href = 'projects.html' class = 'w3-bar-item w3-button w3-hover-none w3-text-white w3-hover-blue-gray'>Projects</a>
@@ -39,7 +39,68 @@
 <!-- Page Content -->
 
 		<article>
+			<div id = 'showcase' class = 'w3-section'>
+				<div class = 'w3-display-container w3-border'>
+				
+					<img style = 'width: 100%;' class = 'mySlides' src = 'showcase/img1.jpg'>
+					<img style = 'width: 100%;' class = 'mySlides' src = 'showcase/img2.jpg'>
+					<img style = 'width: 100%;' class = 'mySlides' src = 'showcase/img3.jpg'>
+					<img style = 'width: 100%;' class = 'mySlides' src = 'showcase/img4.jpg'>
+					<img style = 'width: 100%;' class = 'mySlides' src = 'showcase/img5.jpg'>
+					<img style = 'width: 100%;' class = 'mySlides' src = 'showcase/img6.jpg'>
+					
+					<div class = 'w3-center w3-display-bottommiddle' style = 'width: 100%;'>
+						
+						<div class = 'w3-left w3-button' onclick='plusDivs(-1)'>&#10094;</div>
+						<div class = 'w3-right w3-button' onclick='plusDivs(+1)'>&#10095;</div>
 		
+						<span class="w3-badge demo w3-border w3-button" onclick="currentDiv(1)"></span>
+						<span class="w3-badge demo w3-border w3-button" onclick="currentDiv(2)"></span>
+						<span class="w3-badge demo w3-border w3-button" onclick="currentDiv(3)"></span>
+						<span class="w3-badge demo w3-border w3-button" onclick="currentDiv(4)"></span>
+						<span class="w3-badge demo w3-border w3-button" onclick="currentDiv(5)"></span>
+						<span class="w3-badge demo w3-border w3-button" onclick="currentDiv(6)"></span>
+						
+					</div>
+				
+				</div>
+				
+				<script>
+					var slideIndex = 1;
+					showDivs(slideIndex);
+					
+					function plusDivs(n) {
+					  showDivs(slideIndex += n);
+					}
+
+					function currentDiv(n) {
+					  showDivs(slideIndex = n);
+					}
+					
+					function showDivs(n) {
+					  var i;
+					  var x = document.getElementsByClassName("mySlides");
+					  var dots = document.getElementsByClassName("demo");
+					  if (n > x.length) {slideIndex = 1}    
+					  if (n < 1) {slideIndex = x.length}
+					  for (i = 0; i < x.length; i++) {
+						 x[i].style.display = "none";  
+					  }
+					  for (i = 0; i < dots.length; i++) {
+						 dots[i].className = dots[i].className.replace(" w3-white", "");
+					  }
+					  x[slideIndex-1].style.display = "block";  
+					  dots[slideIndex-1].className += " w3-white";
+					}
+				</script>
+				
+			</div>
+		
+		
+			<div class = 'w3-section w3-margin-left'>
+			<h1 class = 'w3-panel w3-leftbar'>Whats New?</h1>
+			</div>
+			
 		</article>
 
 <!-- Bottom of page -->

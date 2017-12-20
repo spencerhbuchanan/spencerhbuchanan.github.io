@@ -6,6 +6,8 @@
 
 	<meta charset="UTF-8">
 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
 <!-- page title -->
 
         <title>School</title>
@@ -39,14 +41,138 @@
 		
 <!-- Page Content -->
 
-		<article>
+		<div id = 'school-pages' class = 'w3-content w3-margin'>
 		
-		</article>
+			<div>	<!-- Old Site Port -->
+			
+				<h2 class = 'w3-panel w3-leftbar'>Older Website Ports</h2>
+				<h3 class = 'w3-justify'>
+					These pages are outdated, and do not have the same
+					styling, nor CSS sheet. They also may not look
+					great on mobile browsers.
+				</h3>
+				<h3 class = 'w3-justify'>
+					Note: These pages contain non-functional links. 
+					To return to this page, click 'Back' at the top 
+					of the page or hit the back button on your browser
+				</h3>
+				<h4>
+					<a href = 'oldSite/cssExamples.html'>CSS Examples</a><br>
+					<a href = 'oldSite/graphicsMedia.html'>Graphics Examples</a><br>
+					<a href = 'oldSite/javascriptexamples.html'>JavaScript Examples</a><br>
+				</h4>
+				<br>
+				
+			</div>
+			<div>	<!-- Fields Report -->
+			
+				<h2 class = 'w3-panel w3-leftbar'>Fields Report</h2>
+				<object width='100%' height='400' data='documents/Fields_Report.pdf' style='margin-bottom:50px; border:2px solid grey;'>PDF not loaded</object>
+				<br>
+				
+			</div>
+			<div>	<!-- LinkedIn -->
+			
+				<h2 class = 'w3-panel w3-leftbar'>LinkedIn</h2>
+				<h4><a href = 'https://www.linkedin.com/in/spencerhbuchanan/'>Click Here</a></h4>
+				<br>
+				
+			</div>
+			<div>	<!-- Scratch Projects -->
+			
+				<h2 class = 'w3-panel w3-leftbar'>Scratch Projects</h2>
+				<h4><a href = 'https://scratch.mit.edu/projects/173276232/'>'Great Value' Pong</a></h4>
+				<br>
+				
+			</div>
+			<div>	<!-- Caesar Cypher -->
+			
+				<h2 class = 'w3-panel w3-leftbar'>Caesar Cypher</h2>
+				
+				<h3>Text to encode/decode</h3>
+				<h4>
+					To decode, put in encoded text and the opposite of the shift (ex: if shift to encode was 20, put in -20 to decode)<br>
+					Lowercase only and no special characters, please...
+				</h4>
+				<input type='text' id='stringToEncode' value='hello world'></input>
+				<br>
 
+				<h3>Shift (max 100, minimum -100)</h3>
+				<input type='number' id='shift' min='-100' max='100' value='5'></input>
+				<br>
+				
+				<button type="button" onclick="encode()">
+					Click to encode
+				</button>
+				<br>
+				
+				<h3>Output:</h3>
+				<p id="output">Nada</p>
+				
+				<script>
+					function encode(){
+					
+					const alphabet = "abcdefghijklmnopqrstuvwxyz";								//alphabet to use
+					var outputString = '';														//initializes outputString, with a blank string
+					
+					const stringToEncode = document.getElementById('stringToEncode').value;		//inputs varaibles, using constants as to not accidentally change them
+					const shift = parseInt(document.getElementById('shift').value);
+					
+					for(i = 0; i < stringToEncode.length; i++){
+						
+						var letter = stringToEncode[i];
+						var letterOut;
+						var letterPos = alphabet.indexOf(letter);
+						
+						if(letter === ' '){								//if a space, output a space
+							letterOut = ' ';
+						}else if(letterPos === -1){						//checks if in alphabet, which is all lowercase
+							letterOut = "NOT IN MY ALPHABET";
+						}else{			
+							
+							var shiftPass = shift;						//passes the shift to a modifiable variable
+							
+							/*
+							Checks if shift would put the letter out of the array, 
+							if it does changes shiftPass to an equivalent shift 
+							within the array (same for following if statement)
+							*/
+							
+							while(shiftPass < 0){						
+								shiftPass += 26;
+							}
+							
+							while(shiftPass > 25 - letterPos){
+								shiftPass -= 26;
+							}
+							
+							
+							var newPos = shiftPass + letterPos;			//sets the new position of the letter in the alphabet array to its current position plus its shift
+							
+							letterOut = alphabet[newPos];				//finds new position in alphabet, and then outputs it into a variable
+							
+						}
+						
+						outputString += letterOut;						//appends the new letter onto the output string
+					
+					}
+					
+					document.getElementById('output').innerHTML = outputString;
+					
+					
+					
+					}
+				</script>
+				
+			</div>
+			
+		</div>
+		
 <!-- Bottom of page -->
 		
 		<footer>
-		
+		<!--TempSpace-->
+		<br><br><br><br><br><br>
 		</footer>
 		
     </body>

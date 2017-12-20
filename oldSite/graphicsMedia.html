@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+
+    <head>
+
+	<meta charset="UTF-8">
+
+<!-- page title -->
+
+        <title>Graphics & Media</title>
+
+<!-- css link, try to keep same file across site -->
+
+        <link rel="stylesheet" href="style.css">
+
+    </head>
+
+    <body>
+	
+<!-- What to display above the nav bar -->
+
+		<header>
+			<h1><a href = '../school.html'>Back</a></h1>
+		</header>
+		
+<!-- Nav Bar (make sure to class the active page) -->
+		
+		<nav>
+			<ul>
+				<li>
+					<a href='#'>
+						Main
+					</a>
+				</li>
+				<li class='dropdown'>
+					<a href='#' class='dropParent active'>
+						Portfolio Examples
+					</a>
+					<div class='dropChild'>
+						<a href='#'>
+							CSS & HTML
+						</a>
+						<a href='#'>
+							Javascript
+						</a>
+						<a href='#' class='active'>
+							Graphics & Media
+						</a>
+					</div>
+				</li>
+				<li>
+					<a href='#'>
+						Projects
+					</a>
+				</li>
+				<li class='dropdown'>
+					<a href='#'>
+						About
+					</a>
+				</li>
+			</ul>
+		</nav>
+		
+<!-- Page Content -->
+
+		
+		
+		<h3>Canvas Element:</h3><br>
+		
+		<canvas id='canvasTest' width='400' height='400' style='border:2px solid black;'>
+		Yer browser doesn't support canvas elements
+		</canvas>
+				
+		<script>
+			var canvas = document.getElementById("canvasTest");
+			var canvasPen = canvas.getContext('2d');
+			canvasPen.moveTo(200,0);
+			canvasPen.lineTo(300,300);
+			canvasPen.lineTo(0,100);
+			canvasPen.lineTo(400,100);
+			canvasPen.lineTo(100,300);
+			canvasPen.lineTo(200,0);
+			canvasPen.stroke();
+			
+			canvasPen.font = '20px \"Comic Sans MS\", cursive, sans-serif';
+			canvasPen.strokeText("I Tried",50,350);
+			
+		</script>
+		<br>
+		
+		<h3>SVG Element:</h3><br>
+		
+		<svg width="200" height="250">
+			<polygon points="90,15 45,188 185,82 15,74 166,180" style="fill:gold;stroke:black;stroke-width:2.5;sfill-rule:evenodd;"/>
+			<text fill='#000000" font-size='40' font-family='\'Comic Sans MS\'' x='50' y='120'>An Attempt Was Made</text>
+		</svg>
+		<br>
+		
+		<h3>Audio Example:</h3><br>
+		
+		<audio src='Bit_Bit_Loop.mp3' controls>
+		<samp>Audio unavailable</samp>
+		</audio>
+		
+		<p>MacLeod, Kevin. "Bit Bit Loop." FreePD.com</p><br>
+		
+		<h3>Video Example:</h3><br>
+		<video src='x-15footage.mp4' controls>
+		<samp>Video unavailable</samp>
+		</video>
+		
+		<p>Universal News. <cite>X-15 Rocket Plane - First Free Flight (Standard 4:3).</cite>
+		Wayback Machine,
+		<a href='https://archive.org/details/SF122'>https://archive.org/details/SF122</a>
+		Accessed 11 Nov. 2017.</p><br>
+		
+<!-- Bottom of page -->
+		
+		<footer>
+		
+		</footer>
+		
+    </body>
+
+</html>
